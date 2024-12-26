@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amor</title>
+  <style>
+          body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .pregunta {
+      text-align: center;
+      padding: 50px;
+  border: 30px solid khaki;
+  font-size: 275%;
+      }
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+    
+    h2 {
+      font-size: 2em;
+    }
+    h3 {
+      font-size: 1em;
+    }
+    
+
+    #Imagen {
+      width: 45%;
+      margin: 0 auto;
+      display: block;
+    }
+      #amor{
+      text-align: center;
+      padding: 50px;
+  border: 30px solid pink;
+  font-size: 200%;
+      }
+      #choco {
+      text-aling: center;
+      padding: 10px;
+  border: 10px solid pink;
+  width: 50%;
+  font-size: 100%;
+  }
+  #cita {
+      text-aling: center;
+      padding: 5px;
+      border: 10px solid pink;
+      width 25%;
+      font-size: 100%;
+  }
+      #imagen {
+      width: 45%;
+      margin: 0 auto;
+      display: block;
+    }
+    #ramo {
+      width: 50%;
+      margin: 0 auto;
+      display: block;
+      }
+       #boton2{
+  position: absolute;
+  text-aling: center;
+  left: 85%;
+  top: 68%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  border: 2px solid #FFC0CB;
+  cursor: pointer;
+  font-size: 5em;
+  text-align: center;
+}
+#boton1{
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  border: 4px solid #98FB98;
+  cursor: pointer;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+    <h1 id="delante" class="pregunta">¿Serias mi Valentín?</h1>
+      <h1 class="Mostrar" id="amor" style="display:none">¡Feliz San Valentin!</h1>
+    
+  <img class="Dijosi" id="Imagen" src="https://i.pinimg.com/originals/2a/10/43/2a10438b709beb49136918b56239215f.gif" alt="Mi GIF">
+  <img id="imagen" class"mostrar" src="https://i.pinimg.com/originals/e7/2a/6e/e72a6e08b58b69f9adde6440d42209c8.gif" alt="Mi GIF" style="display: none;">
+  <button onclick="ocultarElementos(); mostrarImagen();" style="padding: 10px 20px; border: 2px solid #98FB98; cursor: pointer; font-size: 80px; text-align: center;" id="boton" class="Dijosi">¡Si!</button>
+  <button onclick="agrandar();" id="boton2" class="Dijosi">No</button>
+  <h2 id="choco" class="testes" style="display:none">¡Flores para ti! Se mi amada durante la eternidad</h2>
+  
+  <img class="foto" id="ramo" src="https://i.ibb.co/N6tbKTV/pixil-frame-0-30.png" alt="Mi Ima" style="display:none">
+  
+  <h3 id="cita" class="Nuevo" style="display:none">Tengamos una cita en sky, te espero en Bosque Escondido💕</h3>
+  
+  
+  <script>
+    function generarPosicionAleatoria(anchoPantalla, altoPantalla, margen) {
+      let x = Math.random() * (anchoPantalla - margen * 2) + margen;
+      let y = Math.random() * (altoPantalla - margen * 2) + margen;
+
+      return { x, y };
+    }
+
+    function moverBoton() {
+      const anchoPantalla = window.innerWidth;
+      const altoPantalla = window.innerHeight;
+      const margen = 50; // Margen para evitar que el botón se salga de la pantalla
+
+      const posicionAleatoria = generarPosicionAleatoria(anchoPantalla, altoPantalla, margen);
+      const boton = document.getElementById("boton2");
+
+      boton.style.left = `${posicionAleatoria.x}px`;
+      boton.style.top = `${posicionAleatoria.y}px`;
+    }
+
+    const boton = document.getElementById("boton2");
+    boton.addEventListener("click", moverBoton);
+    
+      function ocultarElementos() {
+  const elementos = document.querySelectorAll(".Dijosi");
+  for (const elemento of elementos) {
+    elemento.style.display = "none";
+  }
+  
+  const texto = document.getElementById("delante");
+  texto.style.display = "none";
+}
+function mostrarImagen() {
+  const imagen = document.getElementById("imagen");
+  imagen.style.display = "block";
+  
+  const texto = document.getElementById("amor");
+  texto.style.display = "block";
+ 
+  const chocko = document.getElementById("choco");
+  chocko.style.display = "block";
+  
+  const cabeza = document.getElementById("cita");
+  cabeza.style.display = "block";
+
+const rall = document.getElementById("ramo");
+  rall.style.display = "block";
+}
+
+function ocultarCosas() {
+  const cosas = document.querySelectorAll(".Mostrar");
+  for (const cosa of cosas) {
+    cosa.style.display = "none";
+  }
+}
+function mostrarFoto() {
+  const foto = document.getElementById("imagen");
+  foto.style.display = "none";
+}
+
+function agrandar() {
+const boton = document.getElementById("boton");
+
+  let tamañoActual = parseInt(boton.style.fontSize);
+  
+  // Aumentamos el tamaño en 5px
+  tamañoActual += 7;
+  
+  // Actualizamos el estilo del botón
+  boton.style.fontSize = `${tamañoActual}px`;
+}
+
+
+
+  </script>
+</body>
+</html>
